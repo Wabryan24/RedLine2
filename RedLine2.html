@@ -12,59 +12,89 @@
 </head>
 
 <body>
-  <div class="social-sidebar d-none d-md-block">
-    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-    <a href="#" class="google"><i class="fab fa-google-plus-g"></i></a>
-    <a href="#" class="pinterest"><i class="fab fa-pinterest-p"></i></a>
-  </div>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#"><span class="logo"><strong><span
-                class="logo-red">ALLEZ</span>CINE!</span></strong></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                GENRES
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Comedy</a></li>
-                <li><a class="dropdown-item" href="#">Westem</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">MOVIES</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">CONTACT</a>
-            </li>
-          </ul>
-          <form class="d-flex ms-3">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
-          </form>
+    <div class="social-sidebar d-none d-md-block">
+      <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="google"><i class="fab fa-google-plus-g"></i></a>
+      <a href="#" class="pinterest"><i class="fab fa-pinterest-p"></i></a>
+    </div>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#"><span class="logo"><strong><span
+                  class="logo-red">ALLEZ</span>CINE!</span></strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  GENRES
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Comedy</a></li>
+                  <li><a class="dropdown-item" href="#">Westem</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">MOVIES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">CONTACT</a>
+              </li>
+            </ul>
+            <form class="d-flex ms-3">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">LATEST <span>ON</span>LINE <span>MO</span>VIES</h1>
+          <p class="hero-subtitle">IN SPACE NO ONE CAN HEAR YOU SCREAM</p>
+          <button class="btn btn-watch">WATCH TRAILER</button>
+          <div class="hero-indicators">
+            <div class="hero-indicator "></div>
+            <div class="hero-indicator active"></div>
+            <div class="hero-indicator"></div>
+            <div class="hero-indicator"></div>
+          </div>
         </div>
       </div>
-    </nav>
-    <div class="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">LATEST <span>ON</span>LINE <span>MO</span>VIES</h1>
-        <p class="hero-subtitle">IN SPACE NO ONE CAN HEAR YOU SCREAM</p>
-        <button class="btn btn-watch">WATCH TRAILER</button>
-        <div class="hero-indicators">
-          <div class="hero-indicator "></div>
-          <div class="hero-indicator active"></div>
-          <div class="hero-indicator"></div>
-          <div class="hero-indicator"></div>
+    </header>
+    <div class="top-bar d-none d-md-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <i class="fas fa-phone-alt me-2"></i>+32 465 00 00
+          </div>
+          <div class="col-md-6 text-end">
+            <a href="#login" class="me-3">LOGIN</a>
+            <a href="#register">REGISTER</a>
+          </div>
         </div>
       </div>
     </div>
-  </header>
+    <section>
+      <div class="featured-movies container">
+        <h2 class="section-title">FEATURED MOVIES</h2>
+        <ul class="nav nav-tabs mb-4" id="movieTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button"
+              role="tab" aria-controls="all" aria-selected="true">ALL</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="action-tab" data-bs-toggle="tab" data-bs-target="#action" type="button"
+              role="tab" aria-controls="action" aria-selected="false">ACTION</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="comedy-tab" data-bs-toggle="tab" data-bs-target="#comedy" type="button"
+              role="tab" aria-controls="comedy" aria-selected="false">COMEDY</button>
+          </li>
+        </ul>
