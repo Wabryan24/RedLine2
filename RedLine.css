@@ -1,0 +1,75 @@
+:root {
+    --primary: #fe4240;
+    --dark: #1a1a1a;
+    --light: #f8f9fa;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  
+  
+  /* Header & Navigation */
+  .logo {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .logo-red {
+    color: var(--primary);
+  }
+
+  .navbar {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    color: white;
+  }
+
+  .dropdown-menu {
+    background-color: white;
+    border-radius: 0;
+  }
+
+
+
+   /* Social sidebar */
+   .social-sidebar {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
+
+  .social-sidebar a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    margin-bottom: 1px;
+  }
+
+  .social-sidebar .facebook {
+    background-color: #3b5998;
+  }
+
+  .social-sidebar .twitter {
+    background-color: #1da1f2;
+  }
+
+  .social-sidebar .google {
+    background-color: #db4437;
+  }
+
+  .social-sidebar .pinterest {
+    background-color: #bd081c;
+  }
