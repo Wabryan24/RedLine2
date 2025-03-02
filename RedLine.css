@@ -1,4 +1,3 @@
-/* Style général du modal */
 .age-modal {
     display: none;
     position: fixed;
@@ -12,7 +11,6 @@
     z-index: 1000;
 }
 
-/* Contenu du modal */
 .modal-content {
     background: #fff;
     padding: 20px;
@@ -24,7 +22,7 @@
     animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Animation d'apparition */
+                       /* Animation d'apparition */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -36,7 +34,6 @@
     }
 }
 
-/* Titres et texte */
 .modal-content h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
@@ -49,7 +46,6 @@
     color: #666;
 }
 
-/* Boutons */
 .btn-yes, .btn-no {
     display: block;
     width: 100%;
@@ -72,7 +68,7 @@
     color: white;
 }
 
-/* Effet hover */
+                       /* Background */
 .btn-yes:hover {
     background: #218838;
 }
@@ -81,7 +77,7 @@
     background: #c82333;
 }
 
-/* Responsive pour petits écrans */
+                       /* Ca c'est la partie responsive */
 @media (max-width: 480px) {
     .modal-content {
         width: 95%;
@@ -101,3 +97,5 @@
         padding: 8px;
     }
 }
+
+/*************************************************************************************************************************************/
