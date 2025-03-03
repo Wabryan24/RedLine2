@@ -145,26 +145,52 @@ body {
 }
 
 .search-container {
-    position: relative;
     display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* Limite la taille du champ */
+    border-radius: 8px;
+    overflow: hidden; /* Garde un beau design */
 }
 
 .search-input {
-    border-radius: 0;
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
+    flex: 1; /* Permet au champ de remplir l’espace disponible */
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px 0 0 8px; /* Bord arrondi à gauche */
 }
 
 .search-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
+    padding: 10px 15px;
+    background-color: #dc3545; /* Rouge Bootstrap */
     color: white;
     border: none;
-    background: transparent;
+    border-radius: 0 8px 8px 0; /* Bord arrondi à droite */
+    cursor: pointer;
+    transition: background 0.3s;
 }
+
+.search-btn:hover {
+    background-color: #a71d2a; /* Rouge foncé au survol */
+}
+
+/* 📱 Responsive : Ajustement sur mobiles */
+@media (max-width: 576px) {
+    .search-container {
+        max-width: 100%; /* Utilise toute la largeur */
+    }
+    
+    .search-input {
+        font-size: 0.9rem; /* Réduit la taille du texte */
+        padding: 8px;
+    }
+    
+    .search-btn {
+        padding: 8px 12px;
+    }
+}
+
 
 /*************************************************************************************************************************************************/
 .hero-section {
