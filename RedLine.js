@@ -35,19 +35,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const searchForm = document.querySelector("form.d-flex");
-  if (searchForm) {
-    searchForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const searchTerm = this.querySelector("input").value.trim();
-      if (searchTerm) {
-        alert(
-          "Recherche de: " + searchTerm + "\\nFonctionnalité à implémenter."
-        );
+/*************************-- Cette barre de recherche :
+*Enregistre toutes les recherches passées (historique).
+*Empêche les doublons dans l'historique.
+*Affiche automatiquement la dernière recherche dans le champ. -- */
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchForm = document.querySelector("form.d-flex");
+    const searchInput = searchForm?.querySelector("input");
+  
+    if (searchForm && searchInput) {
+      // Charger l'historique des recherches (si disponible)
+      let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+  
+      // Pré-remplir avec la dernière recherche si disponible
+      if (searchHistory.length > 0) {
+        searchInput.value = searchHistory[searchHistory.length - 1]; // Dernière recherche
       }
-    });
-  }
-
+  
+      searchForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const searchTerm = searchInput.value.trim();
+  
+        if (searchTerm) {
+          // Ajouter la nouvelle recherche en évitant les doublons
+          if (!searchHistory.includes(searchTerm)) {
+            searchHistory.push(searchTerm);
+          }
+  
+          // Stocker en localStorage
+          localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+  
+          console.log(`Recherche enregistrée : ${searchTerm}`);
+          alert(`🔍 Recherche de : ${searchTerm}\nHistorique mis à jour !`);
+        }
+      });
+    }
+  });
+  
   const loginForm = document.getElementById("loginForm");
   if (loginForm) {
     loginForm.addEventListener("submit", function (e) {
