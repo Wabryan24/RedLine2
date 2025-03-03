@@ -48,8 +48,20 @@ const movieCards = document.querySelectorAll(".movie-card");
     });
   });
 
+  const searchForm = document.querySelector("form.d-flex");
+  if (searchForm) {
+    searchForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const searchTerm = this.querySelector("input").value.trim();
+      if (searchTerm) {
+        alert(
+          "Recherche de: " + searchTerm + "\\nFonctionnalité à implémenter."
+        );
+      }
+    });
+  }
 
-
+  
 
   const plusFilmsButtons = document.querySelectorAll(".btn-danger.px-4");
   plusFilmsButtons.forEach((button) => {
