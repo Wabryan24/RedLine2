@@ -279,6 +279,21 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById('trailerFrame').src = url;
       }
 
+
+      /*****************************************************************************************************/
+
+      document.addEventListener('DOMContentLoaded', function() {
+
+        // Données de films (exemple)
+        const moviesData = [
+            { title: "Assassin's Creed 3", year: "2016", image: "img/zoolander-2001-comedie.jpg" },
+            // ... ajoutez d'autres films ici ...
+            { title: "Film 2", year: "2023", image: "img/hostel-2005-thriller.jpg"},
+            { title: "Film 3", year: "2021", image: "img/shutterisland-2010-thriller.jpg"},
+            { title: "Film 4", year: "2019", image: "img/Survivestyle5-2004-comedie.jpg"},
+            { title: "Film 5", year: "2023", image: "img/swissarmyman-2016-comedie.jpg"},
+            { title: "Film 6", year: "2023", image: "img/inception-2010-scifi.jpg"},
+
   
 
 src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
