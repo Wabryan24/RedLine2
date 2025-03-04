@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.addEventListener('DOMContentLoaded', function() {
 
-        // Données de films 
+        // Données de films (exemple)
         const moviesData = [
             { title: "Assassin's Creed 3", year: "2016", image: "img/zoolander-2001-comedie.jpg" },
             // ... ajoutez d'autres films ici ...
@@ -293,7 +293,72 @@ document.addEventListener("DOMContentLoaded", function () {
             { title: "Film 4", year: "2019", image: "img/Survivestyle5-2004-comedie.jpg"},
             { title: "Film 5", year: "2023", image: "img/swissarmyman-2016-comedie.jpg"},
             { title: "Film 6", year: "2023", image: "img/inception-2010-scifi.jpg"},
-            { title: "Film 7", year: "2023", image: "img/thefall-200
+            { title: "Film 7", year: "2023", image: "img/thefall-2006-dramatique.jpg"},
+            { title: "Film 8", year: "2023", image: "img/WhatWeDoInTheShadows-2014-comedie.jpg"},
+            { title: "Film 9", year: "2023", image: "img/hostel-2005-thriller.jpg"},
+            { title: "Film 10", year: "2023", image: "img/lesdeuxtours-2002-aventure.jpg"},
+            { title: "Film 11", year: "2023", image: "img/lepatientanglais-1996-dramatique.jpg"},
+            { title: "Film 12", year: "2023", image: "img/intouchables-2011-comedie.jpg"},
+        ];
+    
+        // Données des series (exemple)
+        const seriesData = [
+            { title: "God's Compass", year: "2016", image: "img/lesdeuxtours-2002-aventure.jpg" },
+            { title: "Bad Moms", year: "2016", image: "img/lepatientanglais-1996-dramatique.jpg" },
+            // ... ajoutez d'autres séries ici ...
+            { title: "Serie 3", year: "2023", image: "img/hostel-2005-thriller.jpg"},
+            { title: "Serie 4", year: "2021", image: "img/shutterisland-2010-thriller.jpg"},
+            { title: "Serie 5", year: "2019", image: "img/Survivestyle5-2004-comedie.jpg"},
+            { title: "Serie 6", year: "2023", image: "img/swissarmyman-2016-comedie.jpg"},
+            { title: "Serie 7", year: "2023", image: "img/inception-2010-scifi.jpg"},
+            { title: "Serie 8", year: "2023", image: "img/thefall-2006-dramatique.jpg"},
+            { title: "Serie 9", year: "2023", image: "img/WhatWeDoInTheShadows-2014-comedie.jpg"},
+            { title: "Serie 10", year: "2023", image: "img/hostel-2005-thriller.jpg"},
+            { title: "Serie 11", year: "2023", image: "img/lesdeuxtours-2002-aventure.jpg"},
+            { title: "Serie 12", year: "2023", image: "img/lepatientanglais-1996-dramatique.jpg"},
+            { title: "Serie 13", year: "2023", image: "img/intouchables-2011-comedie.jpg"},
+        ];
+    
+        let moviesIndex = 6; // Nombre de films initialement affichés
+        let seriesIndex = 6; // nombre de series initialement affichées.
+    
+        function displayMovies(startIndex, endIndex, containerId, data){
+          const movieContainer = document.getElementById(containerId);
+          for(let i = startIndex; i < endIndex; i++){
+            if(i < data.length){
+              const movie = data[i];
+              const movieHtml = `
+                <div class="col-md-2">
+                    <div class="movie-card">
+                        <img src="${movie.image}" alt="${movie.title}" class="img-fluid">
+                    </div>
+                    <p class="movie-title">${movie.title}</p>
+                    <p class="movie-year">${movie.year}</p>
+                </div>
+              `;
+              movieContainer.innerHTML += movieHtml;
+            }
+          }
+        }
+    
+        // Affiche les films initiaux
+        displayMovies(0, moviesIndex, "movie-container", moviesData);
+        displayMovies(0, seriesIndex, "series-container", seriesData);
+    
+        // Gestionnaire de clic pour le bouton "PLUS DES FILMS" (Films)
+        document.getElementById("load-more-movies").addEventListener("click", function() {
+            displayMovies(moviesIndex, moviesIndex + 6, "movie-container", moviesData);
+            moviesIndex += 6;
+        });
+    
+        // Gestionnaire de clic pour le bouton "PLUS DES FILMS" (Séries)
+        document.getElementById("load-more-series").addEventListener("click", function() {
+            displayMovies(seriesIndex, seriesIndex + 6, "more-series-container", seriesData);
+            seriesIndex += 6;
+        });
+    });
+
+
 
 
   
