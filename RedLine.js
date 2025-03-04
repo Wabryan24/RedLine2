@@ -283,81 +283,287 @@ document.addEventListener("DOMContentLoaded", function () {
       /*****************************************************************************************************/
 
       document.addEventListener('DOMContentLoaded', function() {
-
-        // Données de films (exemple)
-        const moviesData = [
-            { title: "Assassin's Creed 3", year: "2016", image: "img/zoolander-2001-comedie.jpg" },
-            // ... ajoutez d'autres films ici ...
-            { title: "Film 2", year: "2023", image: "img/hostel-2005-thriller.jpg"},
-            { title: "Film 3", year: "2021", image: "img/shutterisland-2010-thriller.jpg"},
-            { title: "Film 4", year: "2019", image: "img/Survivestyle5-2004-comedie.jpg"},
-            { title: "Film 5", year: "2023", image: "img/swissarmyman-2016-comedie.jpg"},
-            { title: "Film 6", year: "2023", image: "img/inception-2010-scifi.jpg"},
-            { title: "Film 7", year: "2023", image: "img/thefall-2006-dramatique.jpg"},
-            { title: "Film 8", year: "2023", image: "img/WhatWeDoInTheShadows-2014-comedie.jpg"},
-            { title: "Film 9", year: "2023", image: "img/hostel-2005-thriller.jpg"},
-            { title: "Film 10", year: "2023", image: "img/lesdeuxtours-2002-aventure.jpg"},
-            { title: "Film 11", year: "2023", image: "img/lepatientanglais-1996-dramatique.jpg"},
-            { title: "Film 12", year: "2023", image: "img/intouchables-2011-comedie.jpg"},
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const movieContainer = document.getElementById('movie-container');
+    
+        // Tableau de films supplémentaires (à adapter avec tes données)
+        const additionalMovies = [
+            {
+                image: 'img/inception-2010-scifi.jpg',
+                title: 'Inception 2',
+                year: '2024'
+            },
+            {
+                image: 'img/zoolander-2001-comedie.jpg',
+                title: 'Zoolander 3',
+                year: '2025'
+            },
+            {
+                image: 'img/shutterisland-2010-thriller.jpg',
+                title: 'Shutter Island 2',
+                year: '2026'
+            },
+            // Ajoute d'autres films ici
         ];
     
-        // Données des series (exemple)
-        const seriesData = [
-            { title: "God's Compass", year: "2016", image: "img/lesdeuxtours-2002-aventure.jpg" },
-            { title: "Bad Moms", year: "2016", image: "img/lepatientanglais-1996-dramatique.jpg" },
-            // ... ajoutez d'autres séries ici ...
-            { title: "Serie 3", year: "2023", image: "img/hostel-2005-thriller.jpg"},
-            { title: "Serie 4", year: "2021", image: "img/shutterisland-2010-thriller.jpg"},
-            { title: "Serie 5", year: "2019", image: "img/Survivestyle5-2004-comedie.jpg"},
-            { title: "Serie 6", year: "2023", image: "img/swissarmyman-2016-comedie.jpg"},
-            { title: "Serie 7", year: "2023", image: "img/inception-2010-scifi.jpg"},
-            { title: "Serie 8", year: "2023", image: "img/thefall-2006-dramatique.jpg"},
-            { title: "Serie 9", year: "2023", image: "img/WhatWeDoInTheShadows-2014-comedie.jpg"},
-            { title: "Serie 10", year: "2023", image: "img/hostel-2005-thriller.jpg"},
-            { title: "Serie 11", year: "2023", image: "img/lesdeuxtours-2002-aventure.jpg"},
-            { title: "Serie 12", year: "2023", image: "img/lepatientanglais-1996-dramatique.jpg"},
-            { title: "Serie 13", year: "2023", image: "img/intouchables-2011-comedie.jpg"},
-        ];
+        let currentMovieIndex = 0; // Index pour suivre les films supplémentaires
     
-        let moviesIndex = 6; // Nombre de films initialement affichés
-        let seriesIndex = 6; // nombre de series initialement affichées.
+        loadMoreBtn.addEventListener('click', function() {
+            const newRow = document.createElement('div');
+            newRow.classList.add('row', 'mb-4');
     
-        function displayMovies(startIndex, endIndex, containerId, data){
-          const movieContainer = document.getElementById(containerId);
-          for(let i = startIndex; i < endIndex; i++){
-            if(i < data.length){
-              const movie = data[i];
-              const movieHtml = `
-                <div class="col-md-2">
-                    <div class="movie-card">
-                        <img src="${movie.image}" alt="${movie.title}" class="img-fluid">
-                    </div>
-                    <p class="movie-title">${movie.title}</p>
-                    <p class="movie-year">${movie.year}</p>
-                </div>
-              `;
-              movieContainer.innerHTML += movieHtml;
+            for (let i = 0; i < 6; i++) { // Ajoute 6 films à chaque clic
+                if (currentMovieIndex < additionalMovies.length) {
+                    const movie = additionalMovies[currentMovieIndex];
+    
+                    const movieCol = document.createElement('div');
+                    movieCol.classList.add('col-md-2');
+    
+                    const movieCard = document.createElement('div');
+                    movieCard.classList.add('movie-card');
+    
+                    const movieImage = document.createElement('img');
+                    movieImage.src = movie.image;
+                    movieImage.alt = movie.title;
+                    movieImage.classList.add('img-fluid');
+    
+                    const movieTitle = document.createElement('p');
+                    movieTitle.classList.add('movie-title');
+                    movieTitle.textContent = movie.title;
+    
+                    const movieYear = document.createElement('p');
+                    movieYear.classList.add('movie-year');
+                    movieYear.textContent = movie.year;
+    
+                    movieCard.appendChild(movieImage);
+                    movieCol.appendChild(movieCard);
+                    movieCol.appendChild(movieTitle);
+                    movieCol.appendChild(movieYear);
+                    newRow.appendChild(movieCol);
+    
+                    currentMovieIndex++;
+                } else {
+                    loadMoreBtn.disabled = true; // Désactive le bouton si tous les films sont chargés
+                    break;
+                }
             }
-          }
-        }
-    
-        // Affiche les films initiaux
-        displayMovies(0, moviesIndex, "movie-container", moviesData);
-        displayMovies(0, seriesIndex, "series-container", seriesData);
-    
-        // Gestionnaire de clic pour le bouton "PLUS DES FILMS" (Films)
-        document.getElementById("load-more-movies").addEventListener("click", function() {
-            displayMovies(moviesIndex, moviesIndex + 6, "movie-container", moviesData);
-            moviesIndex += 6;
-        });
-    
-        // Gestionnaire de clic pour le bouton "PLUS DES FILMS" (Séries)
-        document.getElementById("load-more-series").addEventListener("click", function() {
-            displayMovies(seriesIndex, seriesIndex + 6, "more-series-container", seriesData);
-            seriesIndex += 6;
+            movieContainer.appendChild(newRow);
         });
     });
 
+
+
+
+/*****************************************************************************************************/
+const initialMovies = [
+  {
+      image: 'img/lesdeuxtours-2002-aventure.jpg',
+      title: 'God\'s Compass',
+      year: '2016',
+      category: 'Aventure'
+  },
+  {
+      image: 'img/lesdeuxtours-2002-aventure.jpg',
+      title: 'God\'s Compass 2',
+      year: '2016',
+      category: 'Actions'
+  },
+  {
+      image: 'img/lesdeuxtours-2002-aventure.jpg',
+      title: 'God\'s Compass 3',
+      year: '2016',
+      category: 'Policiers'
+  },
+  {
+      image: 'img/lesdeuxtours-2002-aventure.jpg',
+      title: 'God\'s Compass 4',
+      year: '2016',
+      category: 'Aventure'
+  },
+  {
+      image: 'img/lesdeuxtours-2002-aventure.jpg',
+      title: 'God\'s Compass 5',
+      year: '2016',
+      category: 'Actions'
+  },
+  {
+      image: 'img/lesdeuxtours-2002-aventure.jpg',
+      title: 'God\'s Compass 6',
+      year: '2016',
+      category: 'Policiers'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'War Dogs',
+      year: '2016',
+      category: 'Thriller'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'War Dogs 2',
+      year: '2016',
+      category: 'Actions'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'War Dogs 3',
+      year: '2016',
+      category: 'Policiers'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'War Dogs 4',
+      year: '2016',
+      category: 'Thriller'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'War Dogs 5',
+      year: '2016',
+      category: 'Actions'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'War Dogs 6',
+      year: '2016',
+      category: 'Policiers'
+  },
+];
+
+const additionalMovies = [
+  {
+      image: 'img/lesdeuxtours-2002-aventure.jpg',
+      title: 'God\'s Compass 7',
+      year: '2017',
+      category: 'Aventure'
+  },
+  {
+      image: 'img/lesdeuxtours-2002-aventure.jpg',
+      title: 'God\'s Compass 8',
+      year: '2017',
+      category: 'Actions'
+  },
+  {
+      image: 'img/lesdeuxtours-2002-aventure.jpg',
+      title: 'God\'s Compass 9',
+      year: '2017',
+      category: 'Policiers'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'War Dogs 7',
+      year: '2017',
+      category: 'Thriller'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'War Dogs 8',
+      year: '2017',
+      category: 'Actions'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'War Dogs 9',
+      year: '2017',
+      category: 'Policiers'
+  },
+];
+
+  /**************************************************************************************************/
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const movieContainer = document.getElementById('movie-container');
+    const filterButtons = document.querySelectorAll('.filter-button');
+
+    let currentMovieIndex = 0;
+    let filteredMovies = initialMovies;
+    let displayedMovies = [...initialMovies];
+
+    function displayMovies(movies) {
+        movieContainer.innerHTML = '';
+        const row1 = document.createElement('div');
+        row1.classList.add('row', 'mb-4');
+        const row2 = document.createElement('div');
+        row2.classList.add('row', 'mb-5');
+
+        movies.forEach((movie, index) => {
+            const movieCol = document.createElement('div');
+            movieCol.classList.add('col-md-2');
+            const movieCard = document.createElement('div');
+            movieCard.classList.add('movie-card');
+            const movieImage = document.createElement('img');
+            movieImage.src = movie.image;
+            movieImage.alt = movie.title;
+            movieImage.classList.add('img-fluid');
+            const movieTitle = document.createElement('p');
+            movieTitle.classList.add('movie-title');
+            movieTitle.textContent = movie.title;
+            const movieYear = document.createElement('p');
+            movieYear.classList.add('movie-year');
+            movieYear.textContent = movie.year;
+
+            movieCard.appendChild(movieImage);
+            movieCol.appendChild(movieCard);
+            movieCol.appendChild(movieTitle);
+            movieCol.appendChild(movieYear);
+
+            if (index < 6) {
+                row1.appendChild(movieCol);
+            } else {
+                row2.appendChild(movieCol);
+            }
+        });
+
+        movieContainer.appendChild(row1);
+        movieContainer.appendChild(row2);
+        displayedMovies = [...movies];
+    }
+
+    displayMovies(filteredMovies);
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            const category = this.textContent;
+
+            if (category === 'All') {
+                filteredMovies = initialMovies;
+            } else {
+                filteredMovies = initialMovies.filter(movie => movie.category === category);
+            }
+
+            currentMovieIndex = 0;
+            displayMovies(filteredMovies);
+        });
+    });
+
+    loadMoreBtn.addEventListener('click', function() {
+        const newMovies = [];
+        let moviesToAdd = [];
+
+        if (filteredMovies === initialMovies) {
+            moviesToAdd = additionalMovies;
+        } else {
+            moviesToAdd = additionalMovies.filter(movie => filteredMovies.some(film => film.category === movie.category));
+        }
+
+        for (let i = 0; i < 6; i++) {
+            if (currentMovieIndex < moviesToAdd.length) {
+                const movie = moviesToAdd[currentMovieIndex];
+                newMovies.push(movie);
+                currentMovieIndex++;
+            } else {
+                loadMoreBtn.disabled = true;
+                break;
+            }
+        }
+        displayMovies([...displayedMovies, ...newMovies]);
+    });
+});
+    
 
 
 
