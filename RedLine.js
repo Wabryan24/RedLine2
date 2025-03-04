@@ -469,7 +469,7 @@ const additionalMovies = [
   },
 ];
 
-/****************************************Features movies***************************************************************/
+/****************************************Features series***************************************************************/
 
   document.addEventListener('DOMContentLoaded', function() {
     const loadMoreBtn = document.getElementById('load-more-btn');
@@ -663,7 +663,7 @@ const additionalSeries = [
   // Ajoute d'autres series ici
 ];
 
-/****************************************Features series***************************************************************/
+
   
 
 src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
