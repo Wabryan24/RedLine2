@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-/*****************************************************************************************************/
+/****************************************Features movies***************************************************************/
 const initialMovies = [
   {
       image: 'img/lesdeuxtours-2002-aventure.jpg',
@@ -469,7 +469,7 @@ const additionalMovies = [
   },
 ];
 
-  /**************************************************************************************************/
+/****************************************Features movies***************************************************************/
 
   document.addEventListener('DOMContentLoaded', function() {
     const loadMoreBtn = document.getElementById('load-more-btn');
@@ -564,9 +564,106 @@ const additionalMovies = [
     });
 });
     
+/****************************************Features series***************************************************************/
 
+const initialSeries = [
+  {
+      image: 'img/lesdeuxtours-2002-aventure.jpg',
+      title: 'God\'s Compass',
+      year: '2016',
+      category: 'Aventure'
+  },
+  {
+      image: 'img/lepatientanglais-1996-dramatique.jpg',
+      title: 'Bad Moms',
+      year: '2016',
+      category: 'Comédie'
+  },
+  {
+      image: 'img/intouchables-2011-comedie.jpg',
+      title: 'Jason Bourne',
+      year: '2016',
+      category: 'Actions'
+  },
+  {
+      image: 'img/shutterisland-2010-thriller.jpg',
+      title: 'Rezort',
+      year: '2016',
+      category: 'Thriller'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'Peter',
+      year: '2016',
+      category: 'Thriller'
+  },
+  {
+      image: 'img/Survivestyle5-2004-comedie.jpg',
+      title: 'ISRA 88',
+      year: '2016',
+      category: 'Comédie'
+  },
+  {
+      image: 'img/hostel-2005-thriller.jpg',
+      title: 'War Dogs',
+      year: '2016',
+      category: 'Thriller'
+  },
+  {
+      image: 'img/swissarmyman-2016-comedie.jpg',
+      title: 'The Other Side',
+      year: '2016',
+      category: 'Comédie'
+  },
+  {
+      image: 'img/inception-2010-scifi.jpg',
+      title: 'Civil War',
+      year: '2016',
+      category: 'Actions'
+  },
+  {
+      image: 'img/thefall-2006-dramatique.jpg',
+      title: 'The Secret Life of Pets',
+      year: '2016',
+      category: 'Animation'
+  },
+  {
+      image: 'img/WhatWeDoInTheShadows-2014-comedie.jpg',
+      title: 'The Jungle Book',
+      year: '2016',
+      category: 'Aventure'
+  },
+  {
+      image: 'img/zoolander-2001-comedie.jpg',
+      title: 'Assassin\'s Creed 3',
+      year: '2016',
+      category: 'Actions'
+  }
+];
 
+const additionalSeries = [
+  {
+      image: 'img/inception-2010-scifi.jpg',
+      title: 'Inception 2',
+      year: '2024',
+      category: 'Actions'
+  },
+  {
+      image: 'img/zoolander-2001-comedie.jpg',
+      title: 'Zoolander 3',
+      year: '2025',
+      category: 'Comédie'
+  },
+  {
+      image: 'img/shutterisland-2010-thriller.jpg',
+      title: 'Shutter Island 2',
+      year: '2026',
+      category: 'Policiers'
+  },
+  // Ajoute d'autres series ici
+];
 
+/****************************************Features series***************************************************************/
   
 
 src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
