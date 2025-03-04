@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.addEventListener('DOMContentLoaded', function() {
 
-        // Données de films (exemple)
+        // Données de films 
         const moviesData = [
             { title: "Assassin's Creed 3", year: "2016", image: "img/zoolander-2001-comedie.jpg" },
             // ... ajoutez d'autres films ici ...
@@ -293,6 +293,8 @@ document.addEventListener("DOMContentLoaded", function () {
             { title: "Film 4", year: "2019", image: "img/Survivestyle5-2004-comedie.jpg"},
             { title: "Film 5", year: "2023", image: "img/swissarmyman-2016-comedie.jpg"},
             { title: "Film 6", year: "2023", image: "img/inception-2010-scifi.jpg"},
+            { title: "Film 7", year: "2023", image: "img/thefall-200
+
 
   
 
